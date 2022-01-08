@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Reset : MonoBehaviour {
 
-
+    [SerializeField]
+    string strTag;
     private void OnCollisionEnter(Collision collision) 
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if(collision.collider.tag==strTag)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
